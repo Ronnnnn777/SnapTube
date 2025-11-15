@@ -1,0 +1,7 @@
+{
+  "name": "SnapTube",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
