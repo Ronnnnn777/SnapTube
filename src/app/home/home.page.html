@@ -1,20 +1,79 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-menu contentId="main-content">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-buttons slot="end">
+        <ion-chip>
+          <ion-avatar>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzv5ke1_Ahm9SF9pgay2hzc2DJsbvjJk9-aA&s" />
+          </ion-avatar>
+          <ion-label>OlipSteamer</ion-label>
+        </ion-chip>
+      </ion-buttons>
+      <ion-title>SnapTube</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+  <ion-content>
+    <ion-list lines="none">
+      <ion-item button="true" [routerLink]="['/account']">
+        <ion-label>Account</ion-label>
+      </ion-item>
+      <ion-item button="true" [routerLink]="['/settings']">
+        <ion-label>Settings</ion-label>
+      </ion-item>
+      <ion-item button="true" [routerLink]="['/about']">
+        <ion-label>About</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div id="main-content" class="ion-page">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title button>SnapTube</ion-title>
+      <ion-grid slot="secondary">
+        <ion-row>
+          <ion-col size="10">
+            <ion-searchbar></ion-searchbar>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-buttons slot="secondary">
+        <ion-chip>
+          <ion-icon class="plus" name="add-outline" size="large"></ion-icon>
+          <ion-label><b>Create</b></ion-label>
+        </ion-chip>
+      </ion-buttons>
+
+      <ion-buttons slot="primary">
+        <ion-button id="open-sesame" expand="block" class="sis">
+          <ion-icon name="notifications-outline" size="large"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-modal #modal trigger="open-sesame" [canDismiss]="canDismiss">
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-title>Notifications</ion-title>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content class="ion-padding">
+            <p>No new notifications</p>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+      <ion-buttons slot="end" class="ion-padding-horizontal">
+        <ion-button>
+          <ion-avatar class="user-contain">
+            <ion-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzv5ke1_Ahm9SF9pgay2hzc2DJsbvjJk9-aA&s"></ion-img>
+          </ion-avatar>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+</div>
