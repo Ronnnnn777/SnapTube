@@ -2,7 +2,7 @@
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="end">
-        <ion-chip>
+        <ion-chip class="Acc_Chip">
           <ion-avatar>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzv5ke1_Ahm9SF9pgay2hzc2DJsbvjJk9-aA&s" />
           </ion-avatar>
@@ -15,14 +15,19 @@
 
   <ion-content>
     <ion-list lines="none">
-      <ion-item button="true" [routerLink]="['/account']">
-        <ion-label>Account</ion-label>
+      <ion-item button="true" [routerLink]="['/home']">
+        <ion-label style="text-align: center;">Home</ion-label>
       </ion-item>
       <ion-item button="true" [routerLink]="['/settings']">
-        <ion-label>Settings</ion-label>
+        <ion-label style="text-align: center;">Settings</ion-label>
       </ion-item>
-      <ion-item button="true" [routerLink]="['/about']">
-        <ion-label>About</ion-label>
+      
+      <ion-item button="true" [routerLink]="['/snaptube-account']">
+        <ion-label style="text-align: center;">SnapTube Account</ion-label>
+         </ion-item> 
+        <ion-item button="true" [routerLink]="['/about']" >
+        <ion-label style="text-align: center;">About</ion-label>
+
       </ion-item>
     </ion-list>
   </ion-content>
@@ -30,50 +35,200 @@
 
 <div id="main-content" class="ion-page">
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar class="app-toolbar">
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title button>SnapTube</ion-title>
-      <ion-grid slot="secondary">
-        <ion-row>
-          <ion-col size="10">
-            <ion-searchbar></ion-searchbar>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-
-      <ion-buttons slot="secondary">
-        <ion-chip>
-          <ion-icon class="plus" name="add-outline" size="large"></ion-icon>
-          <ion-label><b>Create</b></ion-label>
+      <ion-title>
+        <div class="brand">
+          <span class="brand-primary">Snap</span><span class="brand-accent">Tube</span>
+        </div>
+      </ion-title>
+      <ion-buttons slot="end" class="toolbar-actions">
+        <ion-chip class="create-chip">
+          <ion-icon class="plus" name="add-outline" size="small"></ion-icon>
+          <ion-label>Create</ion-label>
         </ion-chip>
-      </ion-buttons>
-
-      <ion-buttons slot="primary">
-        <ion-button id="open-sesame" expand="block" class="sis">
+        <ion-button id="open-sesame" fill="clear" class="sis" aria-label="Notifications">
           <ion-icon name="notifications-outline" size="large"></ion-icon>
         </ion-button>
-      </ion-buttons>
-      <ion-modal #modal trigger="open-sesame" [canDismiss]="canDismiss">
-        <ng-template>
-          <ion-header>
-            <ion-toolbar>
-              <ion-title>Notifications</ion-title>
-            </ion-toolbar>
-          </ion-header>
-          <ion-content class="ion-padding">
-            <p>No new notifications</p>
-          </ion-content>
-        </ng-template>
-      </ion-modal>
-      <ion-buttons slot="end" class="ion-padding-horizontal">
-        <ion-button>
+        <ion-button fill="clear">
           <ion-avatar class="user-contain">
             <ion-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzv5ke1_Ahm9SF9pgay2hzc2DJsbvjJk9-aA&s"></ion-img>
           </ion-avatar>
         </ion-button>
       </ion-buttons>
     </ion-toolbar>
+    <ion-toolbar class="secondary-toolbar">
+      <ion-searchbar placeholder="Search videos, creators, sounds"></ion-searchbar>
+    </ion-toolbar>
+    <ion-modal #modal trigger="open-sesame" [canDismiss]="canDismiss">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Notifications</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <p>No new notifications</p>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
   </ion-header>
+  <ion-content class="home-content" fullscreen>
+    <section class="stories-strip ion-padding-horizontal">
+      <div class="story-item create-story">
+        <div class="story-ring">
+          <ion-icon name="add-outline"></ion-icon>
+        </div>
+        <span>Create</span>
+      </div>
+      <div class="story-item">
+        <div class="story-ring">
+          <ion-avatar>
+            <img src="https://images.pexels.com/photos/168566/pexels-photo-168566.jpeg" alt="Story avatar 1" />
+          </ion-avatar>
+        </div>
+        <span>Jenna</span>
+      </div>
+      <div class="story-item">
+        <div class="story-ring">
+          <ion-avatar>
+            <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg" alt="Story avatar 2" />
+          </ion-avatar>
+        </div>
+        <span>NightOwl</span>
+      </div>
+      <div class="story-item">
+        <div class="story-ring">
+          <ion-avatar>
+            <img src="https://images.pexels.com/photos/428340/pexels-photo-428340.jpeg" alt="Story avatar 3" />
+          </ion-avatar>
+        </div>
+        <span>BeatsLab</span>
+      </div>
+      <div class="story-item">
+        <div class="story-ring">
+          <ion-avatar>
+            <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg" alt="Story avatar 4" />
+          </ion-avatar>
+        </div>
+        <span>Studio 09</span>
+      </div>
+    </section>
+
+    <section class="hero-card ion-padding-horizontal">
+      <div class="hero-text">
+        <p class="hero-pill">Live stream</p>
+        <h2>Night Nigga be Smoking</h2>
+        <h3> Watch me Get Arrested LIVE</h3>
+        <span>OlipSteamer • 69.69 K watching</span>
+      </div>
+      <div class="hero-icon">
+        <ion-icon name="play-circle-outline"></ion-icon>
+      </div>
+    </section>
+
+    <section class="quick-filters ion-padding-horizontal">
+      <ion-chip color="danger" class="active-chip">
+        <ion-label>Live</ion-label>
+      </ion-chip>
+      <ion-chip outline color="light">
+        <ion-label>For You</ion-label>
+      </ion-chip>
+      <ion-chip outline color="light">
+        <ion-label>Following</ion-label>
+      </ion-chip>
+      <ion-chip outline color="light">
+        <ion-label>Music</ion-label>
+      </ion-chip>
+      <ion-chip outline color="light">
+        <ion-label>Vlogs</ion-label>
+      </ion-chip>
+    </section>
+
+    <section class="video-feed ion-padding-horizontal">
+      <ion-card class="video-card">
+        <div class="video-thumb" style="background-image: url('https://images.pexels.com/photos/315638/pexels-photo-315638.jpeg');">
+          <ion-badge color="danger">LIVE</ion-badge>
+          <span class="video-duration">12:24</span>
+        </div>
+        <ion-card-header>
+          <ion-card-title>Tokyo alley jazz session</ion-card-title>
+          <ion-card-subtitle>Upbeat city vibes • 32K watching</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="video-meta">
+            <ion-avatar>
+              <img src="https://images.pexels.com/photos/3775536/pexels-photo-3775536.jpeg" alt="Channel avatar" />
+            </ion-avatar>
+            <div class="video-text">
+              <h4>City Walks</h4>
+              <p>Travel & Lifestyle</p>
+            </div>
+            <ion-chip fill="outline" color="light" class="cta-chip">
+              <ion-label>Subscribe</ion-label>
+            </ion-chip>
+            <ion-button fill="clear" size="small">
+              <ion-icon name="ellipsis-horizontal"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="video-card">
+        <div class="video-thumb" style="background-image: url('https://images.pexels.com/photos/713046/pexels-photo-713046.jpeg');">
+          <span class="video-duration">08:12</span>
+        </div>
+        <ion-card-header>
+          <ion-card-title>Analog film edits tutorial</ion-card-title>
+          <ion-card-subtitle>Lenslab Studio • 104K views</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="video-meta">
+            <ion-avatar>
+              <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg" alt="Lenslab avatar" />
+            </ion-avatar>
+            <div class="video-text">
+              <h4>Lenslab</h4>
+              <p>Creator & Educator</p>
+            </div>
+            <ion-chip fill="outline" color="light" class="cta-chip">
+              <ion-label>Watch later</ion-label>
+            </ion-chip>
+            <ion-button fill="clear" size="small">
+              <ion-icon name="ellipsis-horizontal"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="video-card">
+        <div class="video-thumb" style="background-image: url('https://images.pexels.com/photos/154147/pexels-photo-154147.jpeg');">
+          <span class="video-duration">24:51</span>
+        </div>
+        <ion-card-header>
+          <ion-card-title>Lo-fi rooftop sessions</ion-card-title>
+          <ion-card-subtitle>Sunset Radio • 1.2M views</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="video-meta">
+            <ion-avatar>
+              <img src="https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg" alt="Sunset radio avatar" />
+            </ion-avatar>
+            <div class="video-text">
+              <h4>Sunset Radio</h4>
+              <p>Music & Chill</p>
+            </div>
+            <ion-chip fill="outline" color="light" class="cta-chip">
+              <ion-label>Mix</ion-label>
+            </ion-chip>
+            <ion-button fill="clear" size="small">
+              <ion-icon name="ellipsis-horizontal"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </section>
+  </ion-content>
 </div>

@@ -21,5 +21,9 @@ export const routes: Routes = [
     path: 'about',
     loadComponent: () => import('./about/about.page').then( m => m.AboutPage)
   },
+  {
+    path: 'snaptube-account',
+    loadComponent: () => import('./snaptube-account/snaptube-account.page').then( m => m.SnaptubeAccountPage)
+  },
 
 ];
